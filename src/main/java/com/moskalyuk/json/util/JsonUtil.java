@@ -7,7 +7,7 @@ public class JsonUtil {
         if ("null".equals(stringValue))
             return null;
         else if ("java.lang.String".equals(type.getName()))
-            return stringValue;
+            return stringValue.startsWith("\"") && stringValue.endsWith("\"")?stringValue.substring(1,stringValue.length()-1):stringValue ;
         else if ("java.lang.Character".equals(type.getName()) || "char".equals(type.getName()))
             return stringValue.charAt(1);
         else if ("java.lang.Boolean".equals(type.getName()) || "boolean".equals(type.getName()))
